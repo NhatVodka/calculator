@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const calcSlice = createSlice({
   name: "calc",
   initialState: {
-    result: 0,
+    result: "",
     leftValue: "",
     operation: "",
-    rightVlaue: "",
+    rightValue: "",
   },
   reducers: {
     enterDigit: (state, action) => {
@@ -17,10 +17,10 @@ export const calcSlice = createSlice({
           state.leftValue = parseInt(state.leftValue + action.payload);
         }
       } else {
-        if (state.rightVlaue === "") {
-          state.rightVlaue = parseInt(action.payload);
+        if (state.rightValue === "") {
+          state.rightValue = parseInt(action.payload);
         } else {
-          state.rightVlaue = parseInt(state.rightVlaue + action.payload);
+          state.rightValue = parseInt(state.rightValue + action.payload);
         }
       }
     },
@@ -39,26 +39,26 @@ export const calcSlice = createSlice({
     RESULT: (state) => {
       switch (state.operation) {
         case "+":
-          state.result = state.leftValue + state.rightVlaue;
+          state.result = state.leftValue + state.rightValue;
           break;
         case "-":
-          state.result = state.leftValue - state.rightVlaue;
+          state.result = state.leftValue - state.rightValue;
           break;
         case "*":
-          state.result = state.leftValue * state.rightVlaue;
+          state.result = state.leftValue * state.rightValue;
           break;
         case "/":
-          state.result = state.leftValue / state.rightVlaue;
+          state.result = state.leftValue / state.rightValue;
           break;
         default:
           break;
       }
     },
     CLEAR: (state) => {
-      state.result = 0;
+      state.result = "";
       state.leftValue = "";
       state.operation = "";
-      state.rightVlaue = "";
+      state.rightValue = "";
     },
   },
 });
