@@ -40,15 +40,27 @@ export const calcSlice = createSlice({
       switch (state.operation) {
         case "+":
           state.result = state.leftValue + state.rightValue;
+          state.operation = "";
+          state.rightValue = "";
+          state.leftValue = state.result;
           break;
         case "-":
           state.result = state.leftValue - state.rightValue;
+          state.operation = "";
+          state.rightValue = "";
+          state.leftValue = state.result;
           break;
         case "*":
           state.result = state.leftValue * state.rightValue;
+          state.operation = "";
+          state.rightValue = "";
+          state.leftValue = state.result;
           break;
         case "/":
           state.result = state.leftValue / state.rightValue;
+          state.operation = "";
+          state.rightValue = "";
+          state.leftValue = state.result;
           break;
         default:
           break;
